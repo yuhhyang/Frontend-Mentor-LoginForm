@@ -12,6 +12,10 @@ module.exports = {
         red: `hsl(0, 100%, 74%)`,
         green: `hsl(154, 59%, 51%)`,
       },
+      boxShadow: {
+        DEFAULT: "0px 8px 0px 0px #00000025",
+        solid: "inset 0px -4px 0px rgba(0, 0, 0, 0.0908818)",
+      },
     },
     variants: {
       extend: {},
