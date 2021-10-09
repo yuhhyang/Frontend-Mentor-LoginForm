@@ -6,4 +6,16 @@
 
 html,body{
   font-family: "Poppins",sans-serif;
+  @apply bg-red h-screen;
+}
+
+#root{
+  @apply h-screen;
+  background-image: url("./images/bg-intro-mobile.png");
+}
+
+@media (min-width: 640px) {
+  #root{
+    background-image: url("./images/bg-intro-desktop.png");
+  }  
 }
