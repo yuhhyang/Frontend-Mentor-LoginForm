@@ -4,7 +4,7 @@ import React, { useState } from "react";
 function Card({ children, className }) {
   return (
     <div
-      className={clsx("rounded-lg w-full p-4 text-center shadow", className)}
+      className={clsx("rounded-lg w-full p-6 text-center shadow", className)}
     >
       {children}
     </div>
@@ -15,7 +15,7 @@ function Card({ children, className }) {
 function clsx(...str) {
   return str.filter(Boolean).join(" ");
 }
-// input
+// input & label
 function TextField({ id, label }) {
   const [value, setValue] = useState("");
   return (
@@ -39,10 +39,24 @@ function TextField({ id, label }) {
     </div>
   );
 }
+// Botton
+function Button({ className, children }) {
+  return (
+    <div
+      className={clsx(
+        "rounded-lg w-full p-4 text-center bg-green shadow-solid",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="text-white px-6 space-y-16">
+      {/* article */}
       <article className="pt-24 text-center space-y-6">
         <h1 className="font-bold text-2xl">Learn to code by watching others</h1>
         <p>
@@ -52,17 +66,28 @@ function App() {
         </p>
       </article>
       <section className="grid gap-6">
+        {/* Card - Title */}
         <Card className="bg-blue">
           <p className="px-8">
             <b>Try it free 7 days</b> then $20/mo. thereafter
           </p>
         </Card>
-        <Card className="bg-white text-blue-dark">
+        {/* Card - form*/}
+        <Card className="bg-white text-blue-dark mb-32">
           <form className="space-y-4">
+            {/* input,label */}
             <TextField id="first-name" label="Fist Name" />
             <TextField id="last-name" label="Last Name" />
             <TextField id="email" label="Email" />
             <TextField id="password" label="Password" />
+            {/* submit */}
+            <Button className="text-white">CLAIM YOUR FREE TRIAL</Button>
+            <p className="text-xs text-blue-grayish text-center px-4">
+              By clicking the button, you are agreeing to our{" "}
+              <a href="#" className="text-red font-bold">
+                Terms and Services
+              </a>
+            </p>
           </form>
         </Card>
       </section>
