@@ -55,9 +55,9 @@ function Button({ className, children }) {
 
 function App() {
   return (
-    <div className="text-white px-6 space-y-16">
+    <div className="h-full text-white px-6 gap-16 sm:flex sm:items-center">
       {/* article */}
-      <article className="pt-24 text-center space-y-6">
+      <article className="pt-24 text-center space-y-6 flex-1">
         <h1 className="font-bold text-2xl">Learn to code by watching others</h1>
         <p>
           See how experienced developers solve problems in real-time. Watching
@@ -65,7 +65,7 @@ function App() {
           invaluable.
         </p>
       </article>
-      <section className="grid gap-6">
+      <section className="grid gap-6 flex-1">
         {/* Card - Title */}
         <Card className="bg-blue">
           <p className="px-8">
