@@ -1,14 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Card 有兩個區塊，拿來共用
-function Card({ children,className }) {
+function Card({ children, className }) {
   return (
-    <div className={clsx("rounded-lg w-full p-4 text-center shadow",className)}>{children}</div>
+    <div
+      className={clsx("rounded-lg w-full p-4 text-center shadow", className)}
+    >
+      {children}
+    </div>
   );
 }
 // 避免 Card className 的空格
-function clsx(...str){
-  return str.join(" ");
+// 判斷布林值
+function clsx(...str) {
+  return str.filter(Boolean).join(" ");
+}
+// input
+function TextField() {
+  const [value, setValue] = useState("");
+  return (
+    <div className="relative flex items-center">
+      <label
+        htmlFor="firstName"
+        className={
+          // 打字的時候讓文字提示變透明F
+          clsx("absolute px-3", value !== "" && "opacity-0")
+        }
+      >
+        FirstName
+      </label>
+      <input
+        className="border w-full p-3 rounded"
+        type="text"
+        name="firstName"
+        id="firstName"
+        onChange={e => setValue(e.target.value)}
+      />
+    </div>
+  );
 }
 
 function App() {
@@ -24,10 +53,14 @@ function App() {
       </article>
       <section className="grid gap-6">
         <Card className="bg-blue">
-          <p className="px-8"><b>Try it free 7 days</b> then $20/mo. thereafter</p>
+          <p className="px-8">
+            <b>Try it free 7 days</b> then $20/mo. thereafter
+          </p>
         </Card>
-        <Card className="bg-white">
-
+        <Card className="bg-white text-blue-dark">
+          <form>
+            <TextField/>
+          </form>
         </Card>
       </section>
     </div>
