@@ -16,24 +16,24 @@ function clsx(...str) {
   return str.filter(Boolean).join(" ");
 }
 // input
-function TextField() {
+function TextField({ id, label }) {
   const [value, setValue] = useState("");
   return (
     <div className="relative flex items-center">
       <label
-        htmlFor="firstName"
+        htmlFor={id}
         className={
           // 打字的時候讓文字提示變透明F
           clsx("absolute px-3", value !== "" && "opacity-0")
         }
       >
-        FirstName
+        {label}
       </label>
       <input
         className="border w-full p-3 rounded"
         type="text"
-        name="firstName"
-        id="firstName"
+        name={id}
+        id={id}
         onChange={e => setValue(e.target.value)}
       />
     </div>
@@ -58,8 +58,11 @@ function App() {
           </p>
         </Card>
         <Card className="bg-white text-blue-dark">
-          <form>
-            <TextField/>
+          <form className="space-y-4">
+            <TextField id="first-name" label="Fist Name" />
+            <TextField id="last-name" label="Last Name" />
+            <TextField id="email" label="Email" />
+            <TextField id="password" label="Password" />
           </form>
         </Card>
       </section>
